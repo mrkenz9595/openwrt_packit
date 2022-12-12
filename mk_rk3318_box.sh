@@ -6,7 +6,7 @@ source public_funcs
 init_work_env
 
 PLATFORM=rockchip
-SOC="rk3328"
+SOC="rk3318"
 BOARD="rk3318-box"
 SUBVER=$1
 
