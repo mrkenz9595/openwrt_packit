@@ -41,6 +41,13 @@ elif [[ "$(echo ${MYDEVICE_NAME} | grep "BeikeYun")" != "" ]]; then
         MYDTB_FDTFILE="rk3328-beikeyun-1296mhz.dtb"
     fi
     SOC="beikeyun"
+elif [[ "$(echo ${MYDEVICE_NAME} | grep "RK3318-BOX")" != "" ]]; then
+    if [ -n "${CURRENT_FDTFILE}" ]; then
+        MYDTB_FDTFILE="${CURRENT_FDTFILE}"
+    else
+        MYDTB_FDTFILE="rk3318-box.dtb"
+    fi
+    SOC="rk3318-box"
 elif [[ "$(echo ${MYDEVICE_NAME} | grep "FastRhino R66S")" != "" ]]; then
     if [ -n "${CURRENT_FDTFILE}" ]; then
         MYDTB_FDTFILE="${CURRENT_FDTFILE}"
@@ -640,7 +647,7 @@ sed -e '/rootdev=/d' -i armbianEnv.txt
 sed -e '/rootfstype=/d' -i armbianEnv.txt
 sed -e '/rootflags=/d' -i armbianEnv.txt
 case $SOC in
-    l1pro|beikeyun)
+    l1pro|beikeyun|rk3318-box)
         echo "fdtfile=/dtb/rockchip/${MYDTB_FDTFILE}" >>armbianEnv.txt
 	;;
     *)

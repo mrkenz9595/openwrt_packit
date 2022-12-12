@@ -29,7 +29,7 @@ PACKAGE_FILE="openwrt-armvirt-64-default-rootfs.tar.gz"
 PACKAGE_OPENWRT=(
     "rock5b" "h88k"
     "r66s" "r68s" "h66k" "h68k" "e25"
-    "beikeyun" "l1pro"
+    "beikeyun" "l1pro" "rk3318-box"
     "vplus"
     "s922x" "s922x-n2" "s905x3" "s905x2" "s912" "s905d" "s905"
     "qemu"
@@ -60,6 +60,7 @@ SAVE_OPENWRT_ARMVIRT_VALUE="true"
 SCRIPT_VPLUS_FILE="mk_h6_vplus.sh"
 SCRIPT_BEIKEYUN_FILE="mk_rk3328_beikeyun.sh"
 SCRIPT_L1PRO_FILE="mk_rk3328_l1pro.sh"
+SCRIPT_RK3318_BOX_FILE="mk_rk3328_box.sh"
 SCRIPT_R66S_FILE="mk_rk3568_r66s.sh"
 SCRIPT_R68S_FILE="mk_rk3568_r68s.sh"
 SCRIPT_H66K_FILE="mk_rk3568_h66k.sh"
@@ -125,6 +126,7 @@ init_var() {
     [[ -n "${SCRIPT_VPLUS}" ]] || SCRIPT_VPLUS="${SCRIPT_VPLUS_FILE}"
     [[ -n "${SCRIPT_BEIKEYUN}" ]] || SCRIPT_BEIKEYUN="${SCRIPT_BEIKEYUN_FILE}"
     [[ -n "${SCRIPT_L1PRO}" ]] || SCRIPT_L1PRO="${SCRIPT_L1PRO_FILE}"
+    [[ -n "${SCRIPT_RK3318_BOX}" ]] || SCRIPT_RK3318_BOX="${SCRIPT_RK3318_BOX_FILE}"
     [[ -n "${SCRIPT_R66S}" ]] || SCRIPT_R66S="${SCRIPT_R66S_FILE}"
     [[ -n "${SCRIPT_R68S}" ]] || SCRIPT_R68S="${SCRIPT_R68S_FILE}"
     [[ -n "${SCRIPT_H66K}" ]] || SCRIPT_H66K="${SCRIPT_H66K_FILE}"
@@ -400,6 +402,7 @@ EOF
                         vplus)    [[ -f "${SCRIPT_VPLUS}" ]] && sudo ./${SCRIPT_VPLUS} ;;
                         beikeyun) [[ -f "${SCRIPT_BEIKEYUN}" ]] && sudo ./${SCRIPT_BEIKEYUN} ;;
                         l1pro)    [[ -f "${SCRIPT_L1PRO}" ]] && sudo ./${SCRIPT_L1PRO} ;;
+                        rk3318-box)    [[ -f "${SCRIPT_RK3318_BOX}" ]] && sudo ./${SCRIPT_RK3318_BOX} ;;
                         r66s)     [[ -f "${SCRIPT_R66S}" ]] && sudo ./${SCRIPT_R66S} ;;
                         r68s)     [[ -f "${SCRIPT_R68S}" ]] && sudo ./${SCRIPT_R68S} ;;
                         h66k)     [[ -f "${SCRIPT_H66K}" ]] && sudo ./${SCRIPT_H66K} ;;
